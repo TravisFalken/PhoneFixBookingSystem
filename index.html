@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Minify jQuery library-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--JQuery validator plugin-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <!--server js-->
+    <script src="javascript/script.js"></script>
+    <!--UI jQuery-->
+    <link href = "https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel = "stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <!--Title-->
+        <h1 class="title-area">Phone Fix Booking System</h1>
+        <!--Navbar-->
+        <nav class="menu-area">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="advanced.html">Extension</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Main Section-->
+    <main>
+        <!--All inputs located inside form-->
+        <form id="phoneBooking">
+            <div class="form-layout">
+                <!--Section 1:Customer Details-->
+                <section class="customerDetails">
+                    <div class="container">
+                        <h2 class="form_heading">Customer Details</h2>
+                        <!--Customer type-->
+                        <div class="customerType">
+                            <fieldset name="customer_type_fieldset" class="customer_fieldset">
+                                <legend>Customer Type *</legend>
+                                <div class="customer_radio">
+                                    <label for="customerTypeRadio">Consumer</label>
+                                    <input type="radio" name="customer_type" id="customerTypeConsumer" onclick="updatePrices()" value="consumer">
+                                    <label for="customerTypeBusiness">Business</label>
+                                    <input type="radio" name="customer_type" id="customerTypeBusiness" onclick="updatePrices()" value="business">
+                                </div>
+                                <!--Container for-->
+                               <div class="errContainer">
+
+                               </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="formContainer">
+                            <div class="label">
+                                <label for="title">Title: *</label>
+                            </div>
+                            <div class="input">
+                                <!--Customer Title Dropdown-->
+                                <select id="title_select">
+                                    <option name="title" value="Mr">Mr</option>
+                                    <option name="title" value="Miss">Miss</option>
+                                    <option name="title" value="Ms">Ms</option>
+                                    <option name="title" value="Mrs">Mrs</option>
+                                    <option name="title" value="Dr">Dr</option>
+                                </select>
+                            </div>
+                            <!--First Name-->
+                            <div class="label">
+                                <label for="firstName">First Name: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="first_name" id="firstName">
+                            </div>
+                            <!--Last Name-->
+                            <div class="label">
+                                <label for="lastName">Last Name: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="last_name" id="lastName">
+                            </div>
+                            <!--Street-->
+                            <div class="label">
+                                <label for="street">Street: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="street" id="street">
+                            </div>
+                            <!--Suburb-->
+                            <div class="label">
+                                <label for="suburb">Suburb: </label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="suburb" id="suburb">
+                            </div>
+                            <!--City-->
+                            <div class="label">
+                                <label for="city">City: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="city" id="city">
+                            </div>
+                            <!--Post code-->
+                            <div class="label">
+                                <label for="postCode">Post Code:</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="post_code" id="postCode">
+                            </div>
+                            <!--Phone Number-->
+                            <div class="label">
+                                <label for="phoneNumber">Phone Number: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="phone_number" id="phoneNumber">
+                            </div>
+                            <!--Email-->
+                            <div class="label">
+                                <label for="email">Email: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+                <!--Section 2:Repair Details-->
+                <section class="repairDetails">
+                    <div class="container">
+                        <h2 class="form_heading">Repair Details</h2>
+                        <div class="formContainer">
+                            <!--The purchase date of the phone-->
+                            <div class="label">
+                                <label>Purchase Date: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="date" id="purchaseDate" name="purchase_date" onchange="checkWarranty()">
+                            </div>
+                            <!--The repair date of the phone-->
+                            <div class="label">
+                                <label>Repair Date: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="date" id="repairDate" name="repair_date" onchange="storeRepairTime()">
+                            </div>
+                        </div>
+                        <!--Product Warranty-->
+                        <fieldset id="warrantyFieldSet">
+                            <legend>Under Warranty</legend>
+                            <label for="warranty">Warranty</label>
+                            <input type="checkbox" name="warrenty" id="warranty" value="true" disabled>
+                        </fieldset>
+                        <div class="formContainer">
+                            <!--IMEI number section-->
+                            <div class="label">
+                                <label for="imei_number">IMEI Number: *</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="imei_number" id="imei_number">
+                            </div>
+                            <!--Make of phone select section-->
+                            <div class="label">
+                                <label for="make">Make: *</label>
+                            </div>
+                            <select id="make_of_phone">
+                                <option name="make" value="Apple">Apple</option>
+                                <option name="make" value="LG">LG</option>
+                                <option name="make" value="Motorola">Motorola</option>
+                                <option name="make" value="Nokia">Nokia</option>
+                                <option name="make" value="Samsung">Samsung</option>
+                                <option name="make" value="Sony">Sony</option>
+                                <option name="make" value="Other">Other</option>
+                            </select>
+                            <!--Model of phone-->
+                            <div class="label">
+                                <label for="model">Model</label>
+                            </div>
+                            <input type="text" name="model" id="model">
+                            <!--Fault Category Select section-->
+                            <div class="label">
+                                <label for="fault_category">Fault Category: *</label>
+                            </div>
+                            <select id="falult_category">
+                                <option name="fault" value="Screen">Screen</option>
+                                <option name="fault" value="Battery">Battery</option>
+                                <option name="fault" value="Charging">Charging</option>
+                                <option name="fault" value="SD-storage">SD-storage</option>
+                                <option name="fault" value="Software">Software</option>
+                                <option name="fault" value="Other">Other</option>
+                            </select>
+                            <!--Description area of the form-->
+                            <div class="label">
+                                <label for="description">Description: *</label>
+                            </div>
+                            <div class="input">
+                                <textarea name="description" id="description" rows="4" cols="50"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <!--Section 3:Courtesy Details-->
+                <section class="courtesyPhone">
+                    <div class="container">
+                        <h2 class="form_heading">Courtesy Phone</h2>
+
+                        <div class="formContainer">
+                            <!--Item type section-->
+                            <label id="itemTypeLabel" for="item_type">Item Type:</label>
+                            <select id="courtesy_phoneSelection">
+                                <option value="none" selected disabled hidden>Select a Courtesy Phone</option>
+                                <option name="courtesy_phone" value="iPhone_7">iPhone 7</option>
+                                <option name="courtesy_phone" value="Samsung_s9">Samsung S9</option>
+                                <option name="courtesy_phone" value="iPhone_X">iPhone X</option>
+                                <option name="courtesy_phone" value="lg_g5">LG G5</option>
+                                <option name="courtesy_phone" value="iPhone_8">iPhone 8</option>
+                                <option name="courtesy_phone" value="Pixel_3">Pixel 3</option>
+                                <option name="courtesy_phone" value="samsung_s10">Samsung S10</option>
+                            </select>
+                        </div>
+                        <div class="courtesyBtn_div">
+                            <!--The add button for the courtesy phone-->
+                            <button type="button" onclick="addPhoneButtonClicked()" id="addButton">Add</button>
+                            <!--Remove Courtesy PHone Button-->
+                            <button type="button" onclick="resetCourtesyPhone()" id="removeButton">Remove Phone</button>
+                            <!--Add Charger Button-->
+                            <button type="button" onclick="addChargerButtonClicked()" id="addChargerBtn">Add Charger</button>
+                            <!--Remove Charger Button-->
+                            <button type="button" onclick="removeChargerButtonClicked()" id="removeChargerBtn">Remove Charger</button>
+                        </div>
+                        
+                        <!--Div for table-->
+                        <div class="table_div">
+
+                        </div>
+                    </div>
+
+                </section>
+                <!--Section 4:Cost Section-->
+                <section class="costSection">
+                    <div class="container">
+                        <h2 class="form_heading">Cost</h2>
+                        <div class="formContainer">
+                            <!--Bond section of the cost section-->
+                            <div class="label">
+                                <label for="bond">Bond: </label>
+                            </div>
+                            <input type="text" name="bond" id="bond">
+                            <!--Service fee section-->
+                            <div class="label">
+                                <label for="service_fee">Service Fee:</label>
+                            </div>
+                            <input type="text" name="service_fee" id="service">
+                            <!--Total section-->
+                            <div class="label">
+                                <label for="total">Total:</label>
+                            </div>
+                            <input type="text" name="total" id="total">
+                            <!--GST section-->
+                            <div class="label">
+                                <label for="gst">GST:</label>
+                            </div>
+                            <input type="text" name="gst" id="gst">
+                            <!--Total(+GST) section-->
+                            <div class="label">
+                                <label for="total_gst">Total(+GST)</label>
+                            </div>
+                            <input type="text" name="total_gst" id="total_gst">
+                        </div>
+                    </div>
+
+
+                </section>
+                <!--Section 5:Button Section-->
+                <section class="buttonSection">
+                    <div class="container">
+                        <button class="formBtn" type="reset" form="phoneBooking" onclick="resetElements()">Reset</button>
+                        <button class=formBtn type="submit" id="submitBtn">Submit</button>
+                        <button class="formBtn" type="button" onclick="window.open('faq.html')">FAQ?</button>
+                    </div>
+                    
+                </section>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>Created By: Travis Falkenberg</p>
+    </footer>
+</body>
+
+</html>

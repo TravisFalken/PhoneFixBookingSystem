@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Server CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--Ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--jQuery-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <!--Server JS-->
+    <script src="javascript/advance.js"></script>
+    <!--UI jQuery-->
+    <link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+        integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <!--Title-->
+        <h1 class="title-area">Javascript Extension</h1>
+        <!--Navbar-->
+        <nav class="menu-area">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Extension</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="faqMain">
+        <!--Statement of authenticity-->
+        <div class="card_container">
+            <h2 id="statementH2">Statement of Authenticity</h2>
+            <p>I confirm that:</p>
+            <ul id="authenticityList">
+                <li>This is an original assessment and is entirely my own work.</li>
+                <li>It contains no material previously published or written by another person or myself except where
+                        due acknowledgement is made in the text.
+                </li>
+                <li>No material which to a substantial extent, has been submitted for any other academic course, is
+                        included without acknowledgement.
+                </li>
+            </ul>
+        </div>
+
+        <div class="card_container">
+            <!--Datepicker example-->
+            <div class="card">
+                <h4 class="card_heading">jQuery DatePicker</h4>
+                <p>The datepicker users jQuerie datepicker this will create a UI for an input. DatePicker will be used to enter in the purchase date and repair date. It is good to use the datepicker because it will make the user experience better,
+                    stop user error from happening because users can't enter dates in the wrong format.
+                </p>
+                <div class="example_div">
+                    <input class="jsDemoInput" type="text" id="example_datepicker">
+                </div>
+            </div>
+            <!--Drag and Drop example-->
+            <div class="card">
+                <h4 class="card_heading">Drap-and-Drop API</h4>
+                <p>All elements in html are draggable you just have to enable them.The Drag and Drop feature will be used when selecting a courtesy phone. This will make the user experience more natrual and flowing as people prefer visual aids compared to just text.</p>
+                <div class="example_div">
+                    <div id="drag_div_1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img src="media/IPhone_7.svg" draggable="true" ondragstart="drag(event)" id="drag1" width="100"
+                            height="100">
+                    </div>
+                    <div id="drag_div_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!--Geolocation Example-->
+            <div class="card">
+                <h4 class="card_heading">Geolocation</h4>
+                <p>Geolocation is an amazing tool it gets the users location using their ip address and mac address. It will be used to show the user where the phone fixing shop is relative to their position and how far away they are from the phone fixing shop.</p>
+                <div class="example_div">
+                    <button class="formBtn" onclick="getGeolocation()">Current Geolocation</button>
+                    <p id="latitude"></p>
+                    <p id="longitude"></p>
+                </div>
+            </div>
+            <!--Search feature Example-->
+            <div class="card">
+                <h4 class="card_heading">Search Feature</h4>
+                <p>Search feature is an amazing and needed tool it will search through an array or map or anything that is in a "list".Instead of the user scrolling through hundreds of FAQ's they can search for the one they are looking for and our app will
+                    display it so it will save our users time and increase users experience
+                </p>
+                <div class="example_div">
+                    <label>Search</label>
+                    <input class="jsDemoInput" type="text" id="searchInput">
+                    <input type="button" class="formBtn" value="Search" id="searchBtn" onclick="searchFaq()">
+                    <p id="searchResults"></p>
+                </div>
+            </div>
+            <!--Local Storage Example-->
+            <div class="card">
+                <h4 class="card_heading">Local Storage</h4>
+                <p>We can use local storage which is built into all browsers to store username, other invoices and job Number. This will help store vital information like invoices and job number that we can auto increment.</p>
+                <div class="example_div">
+                    <!--Username save example-->
+                    <label>Enter Username:</label>
+                    <input class="jsDemoInput" type="text" id="example_username">
+                    <div>
+                            <button type="button" class="formBtn" onclick="submitUsername()">Submit</button>
+                            <button type="button" class="formBtn" onclick="showUsername()">Show</button>
+                            <button type="button" class="formBtn" onclick="removeUsername()">Delete</button>
+                    </div>
+                    
+                    <!--Auto increment job number example-->
+                    <br><br>
+                    <button type="button" class="formBtn" onclick="increaseJobNumber()">Increase Job Number</button>
+                    <p id="jobNumber"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+            <p>Created By: Travis Falkenberg</p>
+            <p>The Source of Image is By: <b>Rafael Fernandez</b></p>
+            <p>The link is: <a href="https://commons.wikimedia.org/wiki/File:IPhone_7_Jet_Black.svg">Image Link</a></p>
+    </footer>
+</body>
+
+</html>

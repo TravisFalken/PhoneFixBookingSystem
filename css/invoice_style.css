@@ -1,0 +1,130 @@
+/*-------STYLES FOR INVOICE----------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    padding: 0.5em 12em 0.5em 12em;
+    
+}
+
+body{
+    border: 1px solid black;
+}
+.section_heading {
+    margin-bottom: 1em;
+}
+
+#invoice_header {
+    display: grid;
+    background-color: grey;
+    color: black;
+    grid-template-columns: 1fr 1fr;
+    min-height: 20vh;
+    padding: 0 1em;
+}
+
+#invoice_main {
+    background-color: white;
+    padding: 0 2em;
+}
+
+#invoice_title {
+    margin: auto 0;
+}
+
+.amount_div {
+    margin: auto 0;
+    text-align: right;
+}
+
+.customer_repairjob {
+    display: grid;
+    grid-template-columns: 8fr 3fr;
+    padding: 1em 0 0 0;
+    margin-bottom: 1em;
+}
+
+.repairjob {
+   /* padding-left: 3em;*/
+}
+
+/*==========Style for courtesy phone table=====================*/
+#phoneTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/*Style table headings*/
+#phoneTable th {
+    background-color: white;
+    padding: 8px;
+    border: 1px solid;
+    border-bottom: 2px solid;
+}
+
+/*Style detaisl of the table*/
+#phoneTable td {
+    background-color: white;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid;
+}
+
+.repairjob_details {
+    margin-left: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.repair_details_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    
+}
+.repair_details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-left: 2em;
+}
+
+.totals {
+    display: grid;
+    grid-template-columns: 8fr 3fr;
+    margin-bottom: 1em;
+}
+
+.totals_details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 2em;
+}
+
+.table_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2em;
+}
+
+.table_container {
+    padding: 0 15em 0 2em;
+}
+
+.thick_line {
+    border: 1px solid black;
+}
+
+footer {
+    border-top: 0.5px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2em 1em;
+}
+
+.contact {
+    text-align: right;
+}
